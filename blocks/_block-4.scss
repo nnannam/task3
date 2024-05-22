@@ -1,0 +1,87 @@
+.block4{
+    &__title{
+        padding-top: 10vw;
+        padding-left: 5vw;
+        @include large-text(70,35);
+        display: inline-block;
+        @include mediaPhone{
+            @include large-text(40,32);
+        }
+    }
+    &__title:after{
+        content: "";
+        display: block;
+        margin-top: 1.4vw;
+        margin-bottom: 5vw;
+        color: $underline-color;
+        border: 0.5vw solid $underline-color;
+        @include mediaPhone{
+            border: 0.8vw solid;
+        }
+    }
+}
+.li{
+    display: inline-block;
+    padding: 1vw 3vw 1vw 3vw;
+    @include small-text;
+    margin: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+.all{
+    border: 1px solid rgb(199, 199, 199);
+}
+.text-turbines{
+    background-color: $color;
+}
+.text-ignition{
+    background-color: #BCD1E7;
+}
+.text-vcontrol{
+    background-color: #95A9BE;
+}
+.text-tcontrol{
+    background-color: #6886a6;
+    margin-bottom: 6vw;
+}
+.box{
+    min-height: 11vw;
+    min-width: 20vw;
+    padding: 0 1vw;
+    margin: 1vw ;
+    float: left;
+    border-radius: 1.5vw;
+    @include small-text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.box.turbines{
+    background-color: $color;
+}
+.box.ignition{
+    background-color: #BCD1E7;
+}
+.box.vcontrol{
+    background-color: #95A9BE;
+}
+.box.tcontrol{
+    background-color: #6886a6;
+}
+.hide{
+    opacity: 1;
+    animation-name: a1;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+@keyframes a1{
+    to {
+        opacity: 0;
+        min-height: 0;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+}

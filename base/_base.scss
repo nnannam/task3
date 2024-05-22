@@ -1,0 +1,15 @@
+body{
+    font-family: $font-main;
+}
+a{
+    color: #000;
+}
+.container{
+    margin: auto;
+    padding: 0 15px;
+    max-width: 1382px;
+}
+
+.no-scroll{
+    overflow-y: hidden;
+}

@@ -1,0 +1,24 @@
+@mixin large-text ($max: 70, $min: 24){
+    font-size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+@mixin small-text ($max: 24, $min: 16){
+    font: {
+        family: "Montserrat", sans-serif;
+        size: clamp(#{$min}px, #{$max / 1440 * 100}vw, #{$max}px);
+        weight: 400;
+      }
+}
+
+@mixin mediaTablet {
+    @media screen and (max-width: $tablet){
+        @content;
+    }
+}
+@mixin mediaPhone {
+    @media screen and (max-width: $phone){
+        @content;
+    }
+}

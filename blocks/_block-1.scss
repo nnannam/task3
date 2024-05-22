@@ -1,0 +1,48 @@
+.block1{
+    min-height: 900px;
+    background-image:url("./images/background.png");
+    border-radius: 30px;
+    @include mediaTablet{
+        min-height: 700px;
+    }
+    @include mediaPhone{
+        min-height: 600px;
+    }
+    &__text{
+        display: flex;
+        flex-direction: column;
+        padding-left: 5vw;
+        padding-top: 5vw;
+        margin-right: 5vw;
+        row-gap: 35px;
+        color: white;
+        max-width: 870px;
+        @include mediaPhone{
+            row-gap: 5vw;
+        }
+    }
+    &__title{
+        @include large-text (70, 55);
+        @include mediaPhone{
+            @include large-text (40, 38);
+        }
+        @media screen and (max-width: 409px) {
+            @include large-text(38,32)
+        }
+        @media screen and (max-width: 355px) {
+            @include large-text(32,30)
+        }
+        @media screen and (max-width: 335px) {
+            @include large-text(30,28)
+        }
+        @media screen and (max-width: 315px) {
+            @include large-text(28,25)
+        }
+    }
+    &__description{
+        @include small-text;
+        @include mediaPhone{
+            @include small-text(24,14);
+        }
+    }
+}
