@@ -571,7 +571,6 @@ a {
 }
 
 .block4__title {
-  padding-top: 10vw;
   padding-left: 5vw;
   font-size: clamp(35px, 4.8611111111vw, 70px);
   font-weight: 500;
@@ -633,8 +632,8 @@ a {
   margin-bottom: 6vw;
 }
 
-.block-cover {
-  min-height: 30vw;
+.empty {
+  height: 60vh;
 }
 
 .box {
