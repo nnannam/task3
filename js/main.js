@@ -52,13 +52,101 @@ const filterBox = document.querySelectorAll('.box');
 document.querySelector('.filter__nav').addEventListener('click', event => {
     if (event.target.tagName !== 'LI') return false;
 
-    let filterClass = event.target.dataset['f'];
-    
+    let filterClass = event.target.classList[1];
+    let Class = event.target.dataset['f'];
 
     filterBox.forEach( elem => {
         elem.classList.remove('hide');
-        if (!elem.classList.contains(filterClass)) {
+        if (!elem.classList.contains(filterClass) && Class !== 'Все') {
             elem.classList.add('hide');
         }
+        
     });
 });
+
+
+
+//accordeon
+document.querySelectorAll('.accordeon').forEach((el) => {
+    el.addEventListener('click', () => {
+        let content = el.nextElementSibling;
+
+        if (content.style.maxHeight) {
+            document.querySelectorAll('.content').forEach((el) => el.style.maxHeight = null)
+        } else {
+            document.querySelectorAll('.content').forEach((el) => el.style.maxHeight = null)
+            content.style.maxHeight = content.scrollHeight + 'px'
+        }
+    })
+})
+
+//slider
+
+
+
+const arrowLeft = document.querySelector(".arrow-left");
+const arrowRight = document.querySelector(".arrow-right");
+const slides = document.querySelectorAll(".slider-image");
+const bottom = document.getElementById("bottom");
+
+let currentSlideIndex = 0;
+const paginationCircles = [];
+
+function createPaginationCircle() {
+    const div = document.createElement("div");
+    div.className = "pagination-circle";
+    bottom.appendChild(div);
+    paginationCircles.push(div);
+}
+
+function addPagination() {
+    slides.forEach(createPaginationCircle);
+    paginationCircles[0].classList.add("active");
+    paginationCircles.forEach((circle, index) => {
+        circle.addEventListener("click", () => changeSlide(index));
+    });
+}
+
+function addActiveClass() {
+    paginationCircles[currentSlideIndex].classList.add("active");
+}
+
+function removeActiveClass() {
+    paginationCircles[currentSlideIndex].classList.remove("active");
+}
+
+function showSlide() {
+    slides[currentSlideIndex].classList.add("block");
+}
+
+function hideSlide() {
+    slides[currentSlideIndex].classList.remove("block");
+}
+
+function changeSlide(slideIndex) {
+    hideSlide();
+    removeActiveClass();
+    currentSlideIndex = slideIndex;
+    addActiveClass();
+    showSlide();
+}
+
+function nextSlide() {
+    let newSlideIndex = currentSlideIndex + 1;
+    if(newSlideIndex > slides.length - 1) {
+        newSlideIndex = 0;
+    }
+    changeSlide(newSlideIndex);
+}
+
+function previousSlide() {
+    let newSlideIndex = currentSlideIndex - 1;
+    if(newSlideIndex < 0) {
+        newSlideIndex = slides.length - 1;
+    }
+    changeSlide(newSlideIndex);
+}
+
+addPagination();
+arrowLeft.addEventListener("click", previousSlide);
+arrowRight.addEventListener("click", nextSlide);

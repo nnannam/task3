@@ -44,6 +44,9 @@
     background-color: #6886a6;
     margin-bottom: 6vw;
 }
+.block-cover{
+    min-height: 30vw;
+}
 .box{
     min-height: 11vw;
     min-width: 20vw;
@@ -70,7 +73,7 @@
     background-color: #6886a6;
 }
 .hide{
-    opacity: 1;
+    display: none;
     animation-name: a1;
     animation-duration: 2s;
     animation-fill-mode: forwards;

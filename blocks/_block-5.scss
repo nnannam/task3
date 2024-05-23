@@ -1,0 +1,71 @@
+.block5{
+    &__title{
+        padding-top: 10vw;
+        padding-left: 5vw;
+        @include large-text(70,35);
+        display: inline-block;
+        @include mediaPhone{
+            @include large-text(40,32);
+        }
+    }
+    &__title:after{
+        content: "";
+        display: block;
+        margin-top: 1.4vw;
+        margin-bottom: 5vw;
+        color: $underline-color;
+        border: 0.5vw solid $underline-color;
+        @include mediaPhone{
+            border: 0.8vw solid;
+        }
+    }
+}
+.accordeon{
+    display: flex;
+    justify-content: space-between;
+    background-color: $color;
+    padding: 2vw;
+    @include small-text;
+    border-radius: 1vw;
+    cursor: pointer;
+}
+.accordeon span{
+    display: inline-flex;
+    position: relative;
+    width: 3vw;
+    height: 3vw;
+    background-color: transparent;
+    transform: rotate(0);
+    transition:  transform 0.5s ease-out;
+}
+.accordeon:active span{
+    transform: rotate(90deg);
+}
+.accordeon span::before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+.accordeon span::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+
+.content{
+    max-height: 0;
+    overflow: hidden;
+    @include small-text;
+    margin: 1vw;
+    transition: 0.3s ease-in-out;
+}
